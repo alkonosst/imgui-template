@@ -6,17 +6,27 @@
       "command": "C:/msys64/ucrt64/bin/g++.exe",
       "args": [
         "-fdiagnostics-color=always",
+        "-Wall",
         "-g",
+        "-I${workspaceFolder}/libraries/glad/include",
+        "-I${workspaceFolder}/libraries/glfw-3.4/include",
+        "-I${workspaceFolder}/libraries/imgui",
+        "-I${workspaceFolder}/libraries/imgui/backends",
         "${file}",
+        "${workspaceFolder}/libraries/glad/src/gl.c",
+        "${workspaceFolder}/libraries/glfw-3.4/lib-mingw-w64/libglfw3.a",
+        "${workspaceFolder}/libraries/imgui/*.cpp",
+        "${workspaceFolder}/libraries/imgui/backends/imgui_impl_glfw.cpp",
+        "${workspaceFolder}/libraries/imgui/backends/imgui_impl_opengl3.cpp",
+        "-lopengl32",
+        "-lgdi32",
         "-o",
-        "${fileDirname}\\${fileBasenameNoExtension}.exe"
+        "${workspaceFolder}/${fileBasenameNoExtension}.exe"
       ],
       "options": {
         "cwd": "C:/msys64/ucrt64/bin"
       },
-      "problemMatcher": [
-        "$gcc"
-      ],
+      "problemMatcher": ["$gcc"],
       "group": {
         "kind": "build",
         "isDefault": true
